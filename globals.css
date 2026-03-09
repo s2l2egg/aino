@@ -1,0 +1,141 @@
+:root {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+
+  /* Dark theme (default) */
+  --bg: #0a0a0c;
+  --surface: #131318;
+  --surface-alt: #1a1a22;
+  --border: #2a2a35;
+  --text: #d4d4dc;
+  --text-muted: #7a7a8a;
+  --accent: #6b8aad;
+  --accent-soft: rgba(107, 138, 173, 0.09);
+  --user-bubble: #1e2a3a;
+  --user-text: #c8d8e8;
+  --ai-bubble: #18181f;
+  --ai-text: #c8c8d4;
+  --input-bg: #111116;
+  --placeholder: #555566;
+  --finnish: #8ba4be;
+  --mic-active: #ad4a4a;
+  --mic-active-bg: rgba(173, 74, 74, 0.13);
+  --speaker-active: #6b8aad;
+}
+
+[data-theme="light"] {
+  --bg: #f0ede8;
+  --surface: #faf8f4;
+  --surface-alt: #edeae4;
+  --border: #d8d4cc;
+  --text: #2a2a30;
+  --text-muted: #7a7870;
+  --accent: #4a6a8a;
+  --accent-soft: rgba(74, 106, 138, 0.08);
+  --user-bubble: #4a6a8a;
+  --user-text: #f0f0f4;
+  --ai-bubble: #f4f2ec;
+  --ai-text: #2a2a30;
+  --input-bg: #faf8f4;
+  --placeholder: #9a9890;
+  --finnish: #3a5a7a;
+  --mic-active: #c45050;
+  --mic-active-bg: rgba(196, 80, 80, 0.09);
+  --speaker-active: #4a6a8a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  transition: background 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes micPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 60, 60, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(200, 60, 60, 0.15);
+  }
+}
+
+@keyframes subtleBreathe {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Textarea placeholder */
+textarea::placeholder {
+  color: var(--placeholder);
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--accent) !important;
+}
+
+/* Button base reset */
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
